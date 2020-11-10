@@ -12,18 +12,21 @@ namespace RPserverTesting
     [TestFixture]
     public class TestConnection
     {
+        //инициализация для Реализующих классов
         private Adapter adapter;
         private Process _rpserver;
         
         [SetUp]
         public void Setup()
         {
+            //Запуск сервера, чтобы каждый раз самому не запускать
              _rpserver = Process.Start("C:\\RPSoftware\\Applications\\Server\\RPserver.exe");
              adapter = new Adapter();
         }
         
         [Test]
         public void CheckConnectionWithServer()
+            //Банальная проверка, по факту смысла нет
         {
             try
             {
@@ -41,6 +44,7 @@ namespace RPserverTesting
         [Test]
         public void CheckConnectionFirstMessage()
         {
+            //Проверка первого сообщения сервера
             adapter.ConnectTeacher();
             IdVObject obj = new IdVObject();
             obj.id = "RP5-00-(000)";
@@ -57,6 +61,7 @@ namespace RPserverTesting
         [Test]
         public void CheckConnectionFirstMessageError()
         {
+   
             adapter.ConnectTeacher();
             IdVObject obj = new IdVObject();
             obj.id = "NEgativeGUID";
@@ -69,6 +74,7 @@ namespace RPserverTesting
         [Test]
         public void CheckConnectionSecondMessage()
         {
+            //Проверка второго сообщения сервера
             adapter.ConnectTeacher();
             IdVObject obj = new IdVObject();
             obj.id = "RP5-00-(000)";
@@ -81,6 +87,7 @@ namespace RPserverTesting
         [Test]
         public void CheckConnectionThirdMessage()
         {
+            //Проверка третьего сообщения сервера
             adapter.ConnectTeacher();
             IdVObject obj = new IdVObject();
             obj.id = "RP5-00-(000)";
@@ -93,6 +100,7 @@ namespace RPserverTesting
         [Test]
         public void TestPingPong()
         {
+            //Проверка пинга глубиной в 10 
             adapter.ConnectTeacher();
             IdVObject obj = new IdVObject();
             obj.id = "RP5-00-(000)";
